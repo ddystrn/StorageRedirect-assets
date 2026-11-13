@@ -7,14 +7,15 @@ Modul ini mendukung Storage Isolation `8.8.1` dengan Enhanced Mode/Zygisk `v29.0
 - Kompatibilitas `PackageInfoList` Android 17 pada hook daftar paket Enhanced Mode.
 - Baris **App rule management** terpisah untuk setiap user/profile yang memiliki aplikasi.
 - Label `User 10` dan badge work profile yang benar.
-- Status rule per profile yang benar di daftar: rule yang dikonfigurasi tampil **On**; aplikasi lain tetap **Off**.
+- Status On/Off mengikuti nilai enabled rule sebenarnya, bukan keberadaan cache.
+- Pembacaan rule menggunakan identitas user/profile dari UID setiap baris.
 
 APK Storage Isolation resmi tidak dimodifikasi atau di-sign ulang. Ini satu modul Zygisk; tidak memerlukan LSPosed maupun modul kedua.
 
 ## Instalasi
 
 1. Pastikan core service Storage Isolation versinya `355` dan ABI perangkat adalah `arm64-v8a`.
-2. Di KernelSU atau Magisk, pasang `storage-isolation-enhanced-multiuser-v29.0.1.4.zip`. ZIP ini menggantikan modul Enhanced Mode Storage Isolation yang ada.
+2. Di KernelSU atau Magisk, pasang `storage-isolation-enhanced-multiuser-v29.0.1.5-candidate.zip`. ZIP ini menggantikan modul Enhanced Mode Storage Isolation yang ada.
 3. Reboot.
 4. Buka Storage Isolation dan pastikan tertulis **Using Enhanced mode v29.0.1 (Zygisk)**.
 5. Buka **App rule management**. Baris profile menampilkan suffix user dan badge work profile.
@@ -29,3 +30,7 @@ Modul mempertahankan hook kompatibilitas daftar paket Android 17 dan membawa ide
 - Tidak menghapus atau mengubah rule yang tersimpan di `/data/adb/storage-isolation/configuration.json`.
 - Modul melewati patch daemon bila versi core service bukan `355`; jangan gunakan dengan versi lain.
 - Diuji dengan user personal `0` dan work profile `10`.
+
+## Status pengujian v29.0.1-multiuser.5
+
+Pre-release, diuji pada satu perangkat. Uji ON→OFF dan buka ulang halaman berhasil pada profile personal dan work profile. Perbaikan dilaporkan tetap bekerja setelah reboot. Isolasi filesystem aktual belum diuji ulang.
