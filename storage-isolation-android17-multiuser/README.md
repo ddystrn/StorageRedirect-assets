@@ -7,7 +7,7 @@ This module supports Storage Isolation `8.8.1` with Enhanced Mode/Zygisk `v29.0.
 - Android 17 `PackageInfoList` compatibility in the Enhanced Mode package hook.
 - Separate App rule management rows for each installed user/profile.
 - Correct `User 10` label and work-profile badge.
-- On/Off reflects the rule's saved enabled value, not cached configuration presence.
+- On/Off reflects the rule's saved enabled value.
 - Rule lookup uses the user/profile derived from each row's UID.
 
 The official Storage Isolation APK is not modified or re-signed. This is one Zygisk module; it does not require LSPosed or a second module.
